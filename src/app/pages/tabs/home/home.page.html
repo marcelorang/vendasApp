@@ -14,13 +14,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="primary">
+<ion-content [scrollY]="false" color="primary">
   <ion-row class="banners">
     <swiper-container
       #swiper
       (afterinit)="swiperReady()"
       (slidechange)="swiperSlideChanged($event)"
-      [loop]="true"
+      [loop]="false"
       [pagination]="true"
     >
       <swiper-slide *ngFor="let account of accounts">
@@ -28,14 +28,29 @@
           <ion-label>
             <span>Total Balance</span>
             <p class="acc-amt">
-              <ion-text color="white">R$ {{account?.balance}}</ion-text>
+              <ion-text color="white">₹{{account?.balance}}</ion-text>
             </p>
             <span>{{account?.acc_no}}</span>
           </ion-label>
         </div></swiper-slide
       >
-      <!-- <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide> -->
     </swiper-container>
   </ion-row>
+
+  <!-- <ion-row class="ion-text-center feature-list" *ngIf="features?.length > 0">
+    <swiper-container
+      #swiper
+      (afterinit)="swiperReady()"
+      (slidechange)="swiperSlideChanged($event)"
+      [loop]="false"
+      [pagination]="true"
+    >
+      <swiper-slide *ngFor="let feature of features">
+        <div align="center">
+          <ion-button slot="icon-only" [color]="feature?.color">
+            <ion-icon [name]="feature?.icon"></ion-icon>
+          </ion-button></div
+      ></swiper-slide>
+    </swiper-container>
+  </ion-row> -->
 </ion-content>

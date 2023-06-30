@@ -11,6 +11,8 @@ export class HomePage implements OnInit {
   swiperRef: ElementRef | undefined;
   swiper?: Swiper; 
   
+  // featureConfig: SwiperOptions;
+  features: any [] = [];
   accounts: any [] = [];
 
   constructor() { }
@@ -30,7 +32,17 @@ export class HomePage implements OnInit {
       {id: 3, acc_no: '40163081205', balance: '80000'},
    
     ];
+    this.features = [
+      {id: 1, color: 'tertiary', icon: 'paper-lane', name: 'Send'},
+      {id: 2, color: 'white', icon: 'send', name: 'Request'},
+      {id: 3, color: 'success', icon: 'add-circle', name: 'Top-up'},
+      {id: 4, color: 'light', icon: 'newspaper', name: 'Bills'},
+      {id: 5, color: 'warning', icon: 'card', name: 'Cards'},
+    
+    ]
   }
 
-
+  // ngAfterContentChecked(){
+  //   this.featureConfig = 
+  // }
 }
