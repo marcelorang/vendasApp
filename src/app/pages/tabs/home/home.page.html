@@ -28,7 +28,7 @@
           <ion-label>
             <span>Total Balance</span>
             <p class="acc-amt">
-              <ion-text color="white">₹{{account?.balance}}</ion-text>
+              <ion-text color="white">${{account?.balance}}</ion-text>
             </p>
             <span>{{account?.acc_no}}</span>
           </ion-label>
@@ -60,25 +60,25 @@
     <ion-list-header>
       <ion-label color="medium">Trasanctions</ion-label>
     </ion-list-header>
-  </ion-list>
 
-  <ion-item-group>
-    <ion-item lines="full" *ngFor="let transaction of transactions">
-      <ion-thumbnail slot="start" class="ion-text-center">
-        <img
-          [src]="'assets/imgs/' + (transaction?.amount >= 0 ? 'up-right.png' : 'down-left-arrow.png')"
-        />
-      </ion-thumbnail>
-      <ion-label>
-        <ion-text>{{ transaction?.to }}</ion-text>
-        <p>
-          <ion-text> {{ transaction?.date | date: 'MMM d, y' }} </ion-text>
-        </p>
-      </ion-label>
-      <ion-text slot="end" color="primary">
-        {{transaction?.amount >= 0 ? '₹' + transaction?.amount : '-₹' +
-        (transaction?.amount * (-1))}}
-      </ion-text>
-    </ion-item>
-  </ion-item-group>
+    <ion-item-group>
+      <ion-item lines="full" *ngFor="let transaction of transactions">
+        <ion-thumbnail slot="start" class="ion-text-center">
+          <img
+            [src]="'assets/imgs/' + (transaction?.amount >= 0 ? 'up-right.png' : 'down-left-arrow.png')"
+          />
+        </ion-thumbnail>
+        <ion-label>
+          <ion-text>{{ transaction?.to }}</ion-text>
+          <p>
+            <ion-text> {{ transaction?.date | date: 'MMM d, y' }} </ion-text>
+          </p>
+        </ion-label>
+        <ion-text slot="end" color="primary">
+          {{transaction?.amount >= 0 ? '$' + transaction?.amount : '-$' +
+          (transaction?.amount * (-1))}}
+        </ion-text>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 </ion-content>
