@@ -1,12 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Swiper, { SwiperOptions } from 'swiper';
-
+import { IonicSlides } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  swiperModules = [IonicSlides];
   @ViewChild('swiper')
   swiperRef: ElementRef | undefined;
   swiper?: Swiper; 
@@ -33,7 +34,7 @@ export class HomePage implements OnInit {
    
     ];
     this.features = [
-      {id: 1, color: 'tertiary', icon: 'paper-lane', name: 'Send'},
+      {id: 1, color: 'tertiary', icon: 'paper-plane', name: 'Send'},
       {id: 2, color: 'white', icon: 'send', name: 'Request'},
       {id: 3, color: 'success', icon: 'add-circle', name: 'Top-up'},
       {id: 4, color: 'light', icon: 'newspaper', name: 'Bills'},
