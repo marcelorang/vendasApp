@@ -1,0 +1,14 @@
+ion-header{
+    ion-toolbar{
+        --background: var(--ion-color-secondary);
+        ion-segment{
+            --background: var(--ion-color-primary);
+                    
+            ion-segment-button {
+                --color: var(--ion-color-primary);
+                --color-checked: var(--ion-color-primary);
+            }
+        }
+    }
+}
+            

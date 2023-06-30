@@ -2,20 +2,46 @@
   <ion-toolbar>
     <ion-title color="primary">Transactions</ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment
+      mode="ios"
+      [value]="segmentValue"
+      (ionChange)="segmentChanged($event)"
+    >
+      <ion-segment-button value="in">
+        <ion-label>In-flow</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="out">
+        <ion-label>out-flow</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
-<ion-toolbar>
-  <ion-segment
-    mode="ios"
-    [value]="segmentValue"
-    (ionChange)="segmentChanged($event)"
-  >
-    <ion-segment-button value="in">
-      <ion-label>In-flow</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="out">
-      <ion-label>out-flow</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-</ion-toolbar>
 
-<content> </content>
+<ion-content color="secondary" fullscreen>
+  <ion-list class="transactions">
+    <ion-list-header>
+      <ion-label color="medium">Trasanctions</ion-label>
+    </ion-list-header>
+
+    <ion-item-group>
+      <ion-item lines="full" *ngFor="let transaction of transactions">
+        <ion-thumbnail slot="start" class="ion-text-center">
+          <img
+            [src]="'assets/imgs/' + (transaction?.amount >= 0 ? 'up-right.png' : 'down-left-arrow.png')"
+          />
+        </ion-thumbnail>
+        <ion-label>
+          <ion-text>{{ transaction?.to }}</ion-text>
+          <p>
+            <ion-text> {{ transaction?.date | date: 'MMM d, y' }} </ion-text>
+          </p>
+        </ion-label>
+        <ion-text slot="end" color="primary">
+          {{transaction?.amount >= 0 ? '$' + transaction?.amount : '-$' +
+          (transaction?.amount * (-1))}}
+        </ion-text>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>
