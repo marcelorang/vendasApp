@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CardPageRoutingModule } from './card-routing.module';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CardPage } from './card.page';
 
 @NgModule({
@@ -15,6 +15,7 @@ import { CardPage } from './card.page';
     IonicModule,
     CardPageRoutingModule
   ],
-  declarations: [CardPage]
+  declarations: [CardPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CardPageModule {}
