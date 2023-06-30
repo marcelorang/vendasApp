@@ -14,7 +14,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [scrollY]="false" color="primary">
+<ion-content color="primary">
   <ion-row class="banners">
     <swiper-container
       #swiper
@@ -44,7 +44,6 @@
       (afterinit)="swiperReady()"
       (slidechange)="swiperSlideChanged($event)"
       [loop]="false"
-      [pagination]="false"
     >
       <swiper-slide *ngFor="let feature of features">
         <div align="center">
@@ -56,4 +55,30 @@
       >
     </swiper-container>
   </ion-row>
+
+  <ion-list class="transactions">
+    <ion-list-header>
+      <ion-label color="medium">Trasanctions</ion-label>
+    </ion-list-header>
+  </ion-list>
+
+  <ion-item-group>
+    <ion-item lines="full" *ngFor="let transaction of transactions">
+      <ion-thumbnail slot="start" class="ion-text-center">
+        <img
+          [src]="'assets/imgs/' + (transaction?.amount >= 0 ? 'up-right.png' : 'down-left-arrow.png')"
+        />
+      </ion-thumbnail>
+      <ion-label>
+        <ion-text>{{ transaction?.to }}</ion-text>
+        <p>
+          <ion-text> {{ transaction?.date | date: 'MMM d, y' }} </ion-text>
+        </p>
+      </ion-label>
+      <ion-text slot="end" color="primary">
+        {{transaction?.amount >= 0 ? '₹' + transaction?.amount : '-₹' +
+        (transaction?.amount * (-1))}}
+      </ion-text>
+    </ion-item>
+  </ion-item-group>
 </ion-content>

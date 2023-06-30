@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
   // featureConfig: SwiperOptions;
   features: any [] = [];
   accounts: any [] = [];
+  transactions: any [] = [];
 
   constructor() { }
   
@@ -40,6 +41,13 @@ export class HomePage implements OnInit {
       {id: 4, color: 'light', icon: 'newspaper', name: 'Bills'},
       {id: 5, color: 'warning', icon: 'card', name: 'Cards'},
     
+    ]
+    this.transactions = [
+      { id: 1, to: 'Piyush', date: '2023-06-30', amount: 5000 },
+      { id: 2, to: 'Avinash', date: '2023-06-30', amount: -5000 },
+      { id: 3, to: 'Catherine', date: '2023-06-30', amount: -5000 },
+      { id: 4, to: 'Akhil Ag', date: '2023-06-30', amount: 5000 },
+      { id: 5, to: 'Prem Ag.', date: '2023-06-30', amount: 5000 },
     ]
   }
 
